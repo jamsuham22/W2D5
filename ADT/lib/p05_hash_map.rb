@@ -23,34 +23,19 @@ class HashMap
     if include?(key)
       @store[key.hash % num_buckets].update(key, val)
     else
-      if @count <= num_buckets
-        @store[key.hash % num_buckets].append(key, val)
-        @count += 1
-      else
-        resize!
-        @store[key.hash % num_buckets].append(key, val)
-        @count += 1
-      end
+      resize! if @count >= num_buckets
+      @store[key.hash % num_buckets].append(key, val)
+      @count += 1
     end
   end
 
   def get(key)
-    if include?(key)
-      return @store[key.hash % num_buckets].get(key)
-      # @store is the array of linked chains
-      # linked chain is the chained nodes
-    else
-      return nil
-    end
+    return @store[key.hash % num_buckets].get(key)
   end
 
   def delete(key)
-    if include?(key)
-      @store[key.hash % num_buckets].remove(key)
-      @count -= 1
-    else
-      nil
-    end
+      removed = @store[key.hash % num_buckets].remove(key)
+      @count -= 1 if removed
   end
 
   def each(&prc)
