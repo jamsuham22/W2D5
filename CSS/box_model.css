@@ -1,0 +1,43 @@
+div {
+}
+
+#first-div {
+  background-color: #39cccc;
+  height: 200px;
+  width: 200px;
+}
+
+#second-div {
+  background-color: #ff4136;
+  /* height: 200px;
+  width: 200px; */
+  box-sizing: border-box;
+}
+
+p {
+  background-color: #7fdbff;
+}
+
+.box {
+  padding: 50px;
+  border: 5px solid black;
+}
+
+.height {
+  background-color: rgb(22, 76, 42);
+  min-height: 10px;
+}
+
+.img1-box {
+  min-width: 200px;
+  min-height: 200px;
+  background-color: rgb(92, 192, 230);
+  display: inline-block;
+
+
+}
+
+img {
+/*width: 100%;
+height: 100%;*/
+}
